@@ -4,8 +4,33 @@ import fetch from 'isomorphic-unfetch'
 const Post =  (props) => (
     <Layout>
        <h1>{props.show.name}</h1>
-       <p>{props.show.summary.replace(/<[/]?p>/g, '')}</p>
        <img src={props.show.image.medium}/>
+       <p>{props.show.summary.replace(/<[^>]*>/g, '')}</p>
+       
+       <style jsx>{`
+      h1, a,p {
+        font-family: "Arial";
+      }
+
+      ul {
+        padding: 0;
+      }
+
+      li {
+        list-style: none;
+        margin: 5px 0;
+      }
+
+      a {
+        text-decoration: none;
+        color: blue;
+      }
+
+      a:hover {
+        opacity: 0.6;
+      }
+      
+    `}</style>
     </Layout>
 )
 
